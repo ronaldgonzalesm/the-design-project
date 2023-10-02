@@ -75,8 +75,9 @@ img{
     background-color: v.$white;
 }
 
-.container {
-    width: 95%;
-    max-width: 1200px;
+.container,
+[class$="__container"] {
+    max-width: 75rem;
     margin: 0 auto;
+    width: 90%;
 }

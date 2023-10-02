@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ronaldgonzalesm/scoot.git"
+    "url": "git+https://github.com/ronaldgonzalesm/the-design-project.git"
   },
   "author": "Ronald Gonzales",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ronaldgonzalesm/scoot/issues"
+    "url": "https://github.com/ronaldgonzalesm/the-design-project/issues"
   },
-  "homepage": "https://github.com/ronaldgonzalesm/scoot#readme",
+  "homepage": "https://github.com/ronaldgonzalesm/the-design-project#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.1",
