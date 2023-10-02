@@ -1,0 +1,83 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+html{
+    box-sizing: border-box;
+    font-family: v.$font;
+    font-size: 16px;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+    background-color: v.$white;
+    color: v.$black;
+}
+
+a{
+    color: v.$colorPrimary;
+    text-decoration: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+p{
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    display: inline-block;
+    color: v.$black;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+  
+h2 {
+    font-size: 2rem;
+}
+  
+h3 {
+    font-size: 1.5rem;
+}
+  
+h4 {
+    font-size: 1.25rem;
+}
+  
+h5 {
+    font-size: 0.85rem;
+}
+  
+h6 {
+    font-size: 0.7rem;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.page-wrapper{
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: v.$white;
+}
+
+.container,
+[class$="__container"] {
+    max-width: 75rem;
+    margin: 0 auto;
+    width: 90%;
+}
