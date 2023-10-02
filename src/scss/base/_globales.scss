@@ -3,7 +3,7 @@
 
 html{
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: v.$font;
     font-size: 16px;
     line-height: 1.5;
     scroll-behavior: smooth;
@@ -15,28 +15,15 @@ html{
     box-sizing: inherit;
 }
 
-::-webkit-scrollbar {
-    width:0.563rem;
-    background-color: v.$white;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgb(27, 29, 30);
-    border-width: 0.063rem;
-    border-style: solid;
-    border-color: rgb(190, 190, 190);
-    border-radius: 6.25rem;
-}
-
 body{
     margin: 0;
     overflow-x: hidden;
     background-color: v.$white;
-    color: #000;
+    color: v.$black;
 }
 
 a{
-    color: #000;
+    color: v.$colorPrimary;
     text-decoration: none;
     transition: opacity 0.3s ease-in-out;
 }
@@ -48,9 +35,7 @@ p{
 
 h1, h2, h3, h4, h5, h6 {
     display: inline-block;
-    /*font-family: 'Satoshi', sans-serif;*/
     color: v.$black;
-    text-transform: uppercase;
     margin: 0;
 }
 
@@ -90,7 +75,7 @@ img{
     background-color: v.$white;
 }
 
-.contenedor {
+.container {
     width: 95%;
     max-width: 1200px;
     margin: 0 auto;

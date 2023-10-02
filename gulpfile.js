@@ -9,8 +9,9 @@ const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
-const cssnano = require('cssnano');
+//const cssnano = require('cssnano');
 
+const pcsmq = require('postcss-sort-media-queries');
 
 function miCss(done){
     //Compilar SASS
@@ -27,10 +28,12 @@ function miCss(done){
     .pipe( sass({outputStyle: 'expanded'}) )
     //Tambien hemos instalado una dependencia llamada autoprefixer
     //que nos permitira añadir los prefijos css automatico
-    .pipe( postcss([ autoprefixer(), cssnano() ]) )
+    //Añadido POST COMBINE MEDIAQUERIES
+    .pipe( postcss([ autoprefixer(), pcsmq({sort:'mobile-first'}) ]) )
 
     //SOURCEMAP
     .pipe( sourcemaps.write('.') )
+
 
     //Paso 3: Guarda el css
     .pipe( dest('build/css') )

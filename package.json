@@ -1,7 +1,7 @@
 {
-  "name": "scoot",
+  "name": "The Design Project",
   "version": "1.0.0",
-  "description": "Proyecto scoot con BEM y SASS",
+  "description": "The Design Project con BEM y SASS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,7 +26,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-webp": "^4.0.1",
-    "postcss": "^8.4.27",
+    "postcss": "^8.4.30",
+    "postcss-sort-media-queries": "^5.2.0",
     "sass": "^1.64.1"
   },
   "browserslist": [

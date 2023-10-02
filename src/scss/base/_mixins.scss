@@ -2,7 +2,7 @@
 
 /** Media Queries **/
 
-@mixin telefono {
+@mixin phone {
     @media (min-width: v.$telefono) {
         @content;
     }
@@ -20,6 +20,11 @@
     }
 }
 
+@mixin phoneMin {
+    @media (max-width: v.$phoneMin) {
+        @content;
+    }
+}
 
 /** Layout **/
 
@@ -27,4 +32,12 @@
     display: grid;
     gap: $espaciado;
     grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin flexible($dis, $direction, $wrap, $just, $align){
+    display: $dis;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $just;
+    align-items: $align;
 }
