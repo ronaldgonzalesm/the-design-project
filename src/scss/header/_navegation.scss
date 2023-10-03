@@ -1,0 +1,44 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.navigation {
+    position: fixed;
+    width: 80%;
+    height: 100vh;
+    @include m.flexible(flex, column, nowrap, flex-start, flex-start );
+    background-color: #333A44;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.0509803922);
+    top: 0;
+    bottom: auto;
+    left: -100%;
+    right: 0;
+    padding: 2rem;
+    column-gap: 3rem;
+    transition: left 0.3s ease-in-out;
+    z-index: 9;
+
+    @include m.desktop { 
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        box-shadow: none;
+        width: auto;
+        height: auto;
+        padding: 0;
+    }
+
+    &__link {
+        color: v.$black;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: color .2s ease-in-out;
+        &:hover{
+            color: v.$colorPrimary;
+        }
+    }
+
+    &__cta-link {
+        
+    }
+
+}

@@ -1,0 +1,59 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+    .btn-hamburger{
+        display: none;
+
+        &:checked + label{
+            //BEM R.
+            .hamburger__line{
+                opacity: 0;
+                height: 0;
+                margin-bottom: 0;
+            }
+
+            &::before{
+                transform: rotate(45deg);
+                margin-bottom: 0;
+            }
+
+            &::after{
+                transform: rotate(-45deg);
+                margin-top: -12px;
+                margin-bottom: 0;
+            }
+
+        }
+
+    }
+
+    .hamburger{
+        background-color: v.$black;
+        width: 50px;
+        height: 50px;
+        @include m.flexible(flex, column, nowrap, center, center );
+        row-gap: .3rem;
+        padding: .2rem;
+        border-radius: 50%;
+        cursor: pointer;
+
+        @include m.desktop {
+            display: none;
+        }
+
+        &::before,
+        &::after{
+            content: '';
+        }
+
+        &::before,
+        &::after,
+        &__line{
+            display: block;
+            width: 70%;
+            height: 3px;
+            background-color: v.$white;
+            transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+        }
+
+    }
