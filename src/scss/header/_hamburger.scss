@@ -1,32 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-    .btn-hamburger{
-        display: none;
-
-        &:checked + label{
-            //BEM R.
-            .hamburger__line{
-                opacity: 0;
-                height: 0;
-                margin-bottom: 0;
-            }
-
-            &::before{
-                transform: rotate(45deg);
-                margin-bottom: 0;
-            }
-
-            &::after{
-                transform: rotate(-45deg);
-                margin-top: -12px;
-                margin-bottom: 0;
-            }
-
-        }
-
-    }
-
     .hamburger{
         background-color: v.$black;
         width: 50px;
@@ -56,4 +30,19 @@
             transition: transform .2s ease-in-out, opacity .2s ease-in-out;
         }
 
+        &--close{
+            &::before{
+                transform: rotate(44deg);
+                transform-origin: 13px 2px;
+            }
+            &::after{
+                transform: rotate(-44deg);
+                transform-origin: 9px 0px;
+            }
+        }
+
+    }
+
+    .btn-hamburger{
+        display: none;
     }

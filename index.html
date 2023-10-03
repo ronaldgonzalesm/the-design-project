@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="icon" type="image/x-icon" href="/build/img/favicon.png">
     <meta name="theme-color" content="#FF734F">
+    <!--Script-->
+    <script src="build/js/script.js" defer></script>
 </head>
 <body>
     <div class="page-wrapper">
@@ -29,13 +31,20 @@
                     </div>
                     <input id="btn-hamburger" class="btn-hamburger" type="checkbox">
                     <label for="btn-hamburger" class="hamburger"><span class="hamburger__line"></span></label>
-                    <nav class="navigation">
-                        <a href="#" class="navigation__link">How It Works</a>
-                        <a href="#" class="navigation__link">About</a>
-                        <a href="#" class="navigation__link">Work</a>
-                        <a href="#" class="navigation__link">Pricing</a>
-                        <a href="#" class="navigation__link">Blog</a>
-                    </nav>
+                    <div class="navigation">
+                        <div class="navigation__header">
+                            <img class="navigation__logo" src="/build/img/logo.svg" alt="Logo" width="60" height="60">
+                            <label for="btn-hamburger" class="hamburger hamburger--close"></label>
+                        </div>
+                        <nav class="navigation__nav">
+                            <a href="#" class="navigation__link">How It Works</a>
+                            <a href="#" class="navigation__link">About</a>
+                            <a href="#" class="navigation__link">Work</a>
+                            <a href="#" class="navigation__link">Pricing</a>
+                            <a href="#" class="navigation__link">Blog</a>
+                            <a href="#" class="button navigation__link navigation__link--button">Get Started</a>
+                        </nav>
+                    </div>
                     <div class="header__cta">
                         <a href="#" class="button navigation__cta-link">Get Started</a>
                     </div>
