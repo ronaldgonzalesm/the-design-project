@@ -3,37 +3,71 @@
 
 .navigation {
     position: fixed;
-    width: 80%;
+    width: 100%;
     height: 100vh;
-    @include m.flexible(flex, column, nowrap, flex-start, flex-start );
-    background-color: #333A44;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.0509803922);
-    top: 0;
-    bottom: auto;
-    left: -100%;
+    background-color: v.$black;
+    top: -120%;
+    left: 0;
     right: 0;
-    padding: 2rem;
-    column-gap: 3rem;
-    transition: left 0.3s ease-in-out;
+    transition: top 0.2s ease-in-out;
     z-index: 9;
 
     @include m.desktop { 
         position: static;
-        flex-direction: row;
         background: transparent;
         box-shadow: none;
         width: auto;
         height: auto;
-        padding: 0;
     }
 
+    &--active{
+        top: 0;
+    }
+
+    &__nav{
+        @include m.flexible(flex, column, nowrap, center, flex-start );
+        row-gap: 3rem;
+        padding: 1.5rem;
+        @include m.desktop {
+            flex-direction: row;
+            align-items: flex-start;
+            column-gap: 2rem;
+            padding: 0;
+        }
+    }
+
+    &__header{
+        height: 100px;
+        @include m.flexible(flex, row, nowrap, space-between, center );
+        padding: 1.5rem;
+        @include m.desktop { 
+            display: none;
+        }
+    }
+
+
     &__link {
-        color: v.$black;
+        color: v.$white;
         font-weight: 700;
         text-transform: uppercase;
         transition: color .2s ease-in-out;
+        @include m.desktop { 
+            color: v.$black;
+        }
+
         &:hover{
             color: v.$colorPrimary;
+        }
+
+        &--button{
+            &:hover{
+                color: v.$white;
+                background-color: v.$colorPrimary;
+                opacity: .75;
+            }
+            @include m.desktop { 
+                display: none;
+            }
         }
     }
 
