@@ -320,7 +320,7 @@ template {
   font-weight: 600;
   text-transform: uppercase;
   background-color: #F86642;
-  padding: 0.875rem 2rem;
+  padding: 1rem 2rem;
   transition: background-color 0.2s ease;
 }
 .button:hover {
@@ -366,23 +366,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 2.125rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.875rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.688rem;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 h5 {
-  font-size: 0.85rem;
+  font-size: 1.125rem;
 }
 
 h6 {
@@ -418,13 +418,67 @@ img {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1.3rem 0;
 }
 .header__cta {
   display: none;
 }
-.header__content {
-  text-align: center;
+.header__benefits {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1rem;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2rem;
+}
+.header__benefit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-column-gap: 0.5rem;
+     -moz-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+  font-weight: 700;
+}
+.header__benefit:before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-image: url("/build/img/icon-item.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.header__button {
+  margin-top: 2rem;
+}
+.header__cartoons {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+  margin: 3rem 0 0;
+  -webkit-column-gap: 2rem;
+     -moz-column-gap: 2rem;
+          column-gap: 2rem;
+}
+.header__cartoon-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.header__cartoon-item:nth-child(4), .header__cartoon-item:nth-child(5) {
+  display: none;
 }
 .navigation {
   position: fixed;
@@ -518,6 +572,23 @@ img {
 @media (min-width: 1024px) {
   .header__cta {
     display: block;
+  }
+  .header__content {
+    margin-top: 5rem;
+    text-align: center;
+  }
+  .header__title {
+    font-size: 3.125rem;
+  }
+  .header__benefits {
+    flex-direction: row;
+    justify-content: center;
+    -webkit-column-gap: 3rem;
+       -moz-column-gap: 3rem;
+            column-gap: 3rem;
+  }
+  .header__cartoon-item:nth-child(4), .header__cartoon-item:nth-child(5) {
+    display: flex;
   }
   .navigation {
     position: static;
