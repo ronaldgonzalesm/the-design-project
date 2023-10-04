@@ -1,0 +1,55 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.experience {
+    background-color: v.$colorSecondary;
+    padding: 4rem 0;
+    text-align: center;
+    @include m.desktop { 
+        padding: 5rem 0;
+    }
+
+    &__title {
+        color: v.$white;
+        margin-bottom: 3rem;
+    }
+
+    &__logos {
+        @include m.flexible(flex, column, nowrap, center, center );
+        gap: 5rem;
+        @include m.desktop {
+            flex-direction: row;
+            gap: 0;
+        }
+    }
+
+    &__thumbail {
+        position: relative;
+        cursor: pointer;
+        @include m.desktop {
+            padding: 0 2rem;
+            &:not(:last-child){
+                &:after{
+                    content: '';
+                    display: inline-block;
+                    width: 1px;
+                    height: 30px;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: v.$colorPrimary;
+                }
+            }
+        }
+
+    }
+
+    &__logo {
+        transition: transform .1s ease-in-out;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+}

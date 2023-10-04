@@ -327,6 +327,10 @@ template {
   background-color: #000;
 }
 
+.color-primary {
+  color: #F86642;
+}
+
 html {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
@@ -366,19 +370,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.125rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 1.875rem;
+  font-size: 2rem;
 }
 
 h3 {
-  font-size: 1.688rem;
+  font-size: 1.875rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.688rem;
 }
 
 h5 {
@@ -403,13 +407,14 @@ img {
 
 .container,
 [class$=__container] {
-  max-width: 75rem;
+  max-width: 72rem;
   margin: 0 auto;
   width: 90%;
 }
 
 .header {
   background-color: #E0EAF3;
+  overflow: hidden;
 }
 .header__bar {
   height: 100px;
@@ -449,7 +454,7 @@ img {
   content: "";
   width: 25px;
   height: 25px;
-  background-image: url("/build/img/icon-item.svg");
+  background-image: url("/build/img/icon-item.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -569,6 +574,36 @@ img {
   display: none;
 }
 
+.experience {
+  background-color: #292526;
+  padding: 4rem 0;
+  text-align: center;
+}
+.experience__title {
+  color: #fff;
+  margin-bottom: 3rem;
+}
+.experience__logos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.experience__thumbail {
+  position: relative;
+  cursor: pointer;
+}
+.experience__logo {
+  transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+}
+.experience__logo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
 @media (min-width: 1024px) {
   .header__cta {
     display: block;
@@ -616,6 +651,28 @@ img {
   }
   .hamburger {
     display: none;
+  }
+  .experience {
+    padding: 5rem 0;
+  }
+  .experience__logos {
+    flex-direction: row;
+    gap: 0;
+  }
+  .experience__thumbail {
+    padding: 0 2rem;
+  }
+  .experience__thumbail:not(:last-child):after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    background-color: #F86642;
   }
 }
 /*# sourceMappingURL=app.css.map */

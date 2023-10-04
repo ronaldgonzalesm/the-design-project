@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="build/css/app.css">
     <link rel="icon" type="image/x-icon" href="/build/img/favicon.png">
     <meta name="theme-color" content="#FF734F">
+    <!--AOS Library-->
+    <link href="build/css/aos.css" rel="stylesheet">
     <!--Script-->
     <script src="build/js/script.js" defer></script>
 </head>
@@ -50,33 +52,82 @@
                     </div>
                 </div>
                 <div class="header__content">
-                    <h1 class="header__title">A UI/UX design subscription so <span class="color-primary">good</span> it should come with a <span class="color-primary">warning</span> label</h1>
-                    <ul class="header__benefits">
+                    <h1 class="header__title" data-aos="fade-up">A UI/UX design subscription so <span class="color-primary">good</span> it should come with a <span class="color-primary">warning</span> label</h1>
+                    <ul class="header__benefits" data-aos="fade-up" data-aos-delay="100">
                         <li class="header__benefit">No hiring headaches</li>
                         <li class="header__benefit">Weekly turnaround times</li>
                         <li class="header__benefit">One flat monthly rate</li>
                     </ul>
-                    <a href="#" class="button header__button">Start Your Risk Free Trial</a>
+                    <a href="#" class="button header__button" data-aos="fade-up" data-aos-delay="200">Start Your Risk Free Trial</a>
                 </div>
                 <ul class="header__cartoons">
-                    <li class="header__cartoon-item">
+                    <li class="header__cartoon-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
                         <img class="header__cartoon-image" src="/build/img/cartoon-1.svg" alt="Cartoon 1" width="140" height="140">
                     </li>
-                    <li class="header__cartoon-item">
+                    <li class="header__cartoon-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400">
                         <img class="header__cartoon-image" src="/build/img/cartoon-2.svg" alt="Cartoon 2" width="140" height="140">
                     </li>
-                    <li class="header__cartoon-item">
+                    <li class="header__cartoon-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="400">
                         <img class="header__cartoon-image" src="/build/img/cartoon-3.svg" alt="Cartoon 3" width="140" height="140">
                     </li>
-                    <li class="header__cartoon-item">
-                        <img class="header__cartoon-image" src="/build/img/cartoon-4.svg" alt="Cartoon 4" width="140" height="140">
+                    <li class="header__cartoon-item" data-aos="fade-up" data-aos-delay="400" data-aos-duration="400">
+                        <img class="header__cartoon-image" src="/build/img/cartoon-4.svg" alt="Cartoon 4" width="180" height="180">
                     </li>
-                    <li class="header__cartoon-item">
+                    <li class="header__cartoon-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
                         <img class="header__cartoon-image" src="/build/img/cartoon-5.svg" alt="Cartoon 5" width="140" height="140">
                     </li>
                 </ul>
             </div>
         </header>
+        <section class="experience">
+            <div class="experience__container" data-aos="fade-up">
+                <h2 class="experience__title">We helper our customers raise <span class="color-primary">€1B+</span></h2>
+                <div class="experience__logos" data-aos="fade-up">
+                    <div class="experience__thumbail">
+                        <img class="experience__logo" src="/build/img/combinator-logo.svg" alt="Logo Combinator" width="230" height="230">
+                    </div>
+                    <div class="experience__thumbail">
+                        <img class="experience__logo" src="/build/img/sequioia-logo.svg" alt="Logo Sequioia" width="230" height="230">
+                    </div>
+                    <div class="experience__thumbail">
+                        <img class="experience__logo" src="/build/img/redpoint-logo.svg" alt="Logo Redpoint" width="230" height="230">
+                    </div>
+                    <div class="experience__thumbail">
+                        <img class="experience__logo" src="/build/img/a16z-logo.svg" alt="Logo A16z" width="230" height="230">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="benefits">
+            <div class="benefits__container">
+                <div class="benefits__header">
+                    <h2 class="benefits__title">A diverse team of <span class="color-primary">passionate</span> UX nerds who are here to help your <span class="color-primary">startup succeed</span></h2>
+                    <p class="benefits__description">From ideation to expansion, TDP understands the unique demands of your startup—providing
+                    you with optimized design strategies and fast turnarounds for an affordable monthly subscription.</p>
+                </div>
+                <div class="benefits__grid">
+                    <article class="benefits__card">
+                        <img class="benefits__img" src="/build/img/icon-costs.svg" alt="Icon costs" width="100" height="100">
+                        <h4 class="benefits__card-title">Costs 70% less</h4>
+                        <p class="benefits__card-description">We developed highly-optimized design processes to let us work fast and deliver incredible
+                        results—and we pass those savings on to you</p>
+                    </article>
+                    <article class="benefits__card">
+                        <img class="benefits__img" src="/build/img/icon-adaptable.svg" alt="Icon adaptable" width="100" height="100">
+                        <h4 class="benefits__card-title">Adaptable and scalable</h4>
+                        <p class="benefits__card-description">High-velocity is crucial to a startup’s success,
+                            and that’s why TDP delivers new designs every week so your momentum never falters</p>
+                    </article>
+                    <article class="benefits__card">
+                        <img class="benefits__img" src="/build/img/icon-fast.svg" alt="Icon fast" width="100" height="100">
+                        <h4 class="benefits__card-title">Fast turnaround times</h4>
+                        <p class="benefits__card-description">TDP was built for flexibility—we quickly adapt and grow as you grow</p>
+                    </article>
+                </div>
+            </div>
+        </section>
     </div>
+    <script src="build/js/aos.js"></script>
+    <script>AOS.init({duration: 200, easing: "linear", aos: "fade-up"});</script>
 </body>
 </html>
