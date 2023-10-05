@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.benefits {
+
+    padding: 4rem 0;
+    background-color: v.$grey;
+    @include m.tablet { 
+        padding: 5rem 0;
+    }
+
+    &__title,
+    &__description {
+        display: block;
+        text-align: left;
+        @include m.tablet { 
+            text-align: center;
+        }
+    }
+
+    &__grid {
+        @include m.grid(1, 3rem);
+        margin-top: 3rem;
+        @include m.desktop { 
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__card {
+        text-align: center;
+    }
+
+    &__img {
+        display: block;
+        margin: 0 auto 1rem;
+    }
+
+    &__card-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__card-description {
+        margin: 0;
+    }
+
+}
