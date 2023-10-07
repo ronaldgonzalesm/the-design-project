@@ -1,0 +1,22 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.accessible{
+    background-color: v.$colorSecondary;
+    padding: 4rem 0;
+    @include m.tablet { 
+        padding: 6rem 0;
+    }
+
+    &__title {
+        display: block;
+        max-width: 900px;
+        color: v.$white;
+        text-align: left;
+        margin: 0 auto 3rem;
+        @include m.tablet { 
+            text-align: center;
+        }
+    }
+
+}

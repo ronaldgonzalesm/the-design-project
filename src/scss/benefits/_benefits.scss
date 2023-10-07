@@ -52,6 +52,7 @@
     }
 
     &__triangle-top{
+        display: block;
         left: 0;
         position: absolute;
         top: 0;
@@ -59,9 +60,11 @@
     }
 
     &__triangle-bottom{
+        display: block;
         right: 0;
         position: absolute;
-        top: 25%;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 1;
     }
 

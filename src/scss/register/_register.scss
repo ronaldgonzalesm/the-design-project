@@ -2,13 +2,11 @@
 @use 'base/mixins' as m;
 
 .register {
+    position: relative;
     padding: 4rem 0;
+    overflow: hidden;
     @include m.tablet { 
         padding: 6rem 0;
-    }
-
-    &__header {
-    
     }
 
     &__title,
@@ -47,8 +45,21 @@
         margin: 0 auto 1rem;
     }
 
-    &__card-description {
-    
+    &__texture-left{
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+
+    &__texture-right{
+        display: block;
+        right: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
     }
 
 }
