@@ -359,7 +359,7 @@ a {
 }
 
 p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -608,10 +608,16 @@ img {
 .benefits {
   padding: 4rem 0;
   background-color: #F6F6F6;
+  overflow: hidden;
+}
+.benefits__container {
+  position: relative;
 }
 .benefits__title, .benefits__description {
   display: block;
+  max-width: 900px;
   text-align: left;
+  margin: 0 auto 1.125rem;
 }
 .benefits__grid {
   display: grid;
@@ -633,13 +639,27 @@ img {
 .benefits__card-description {
   margin: 0;
 }
+.benefits__triangle-top {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.benefits__triangle-bottom {
+  right: 0;
+  position: absolute;
+  top: 25%;
+  z-index: 1;
+}
 
 .register {
   padding: 4rem 0;
 }
 .register__title, .register__description {
   display: block;
+  max-width: 900px;
   text-align: left;
+  margin: 0 auto 1.125rem;
 }
 .register__grid {
   display: grid;
@@ -662,13 +682,13 @@ img {
 }
 @media (min-width: 768px) {
   .benefits {
-    padding: 5rem 0;
+    padding: 6rem 0;
   }
   .benefits__title, .benefits__description {
     text-align: center;
   }
   .register {
-    padding: 5rem 0;
+    padding: 6rem 0;
   }
   .register__title, .register__description {
     text-align: center;
@@ -723,7 +743,7 @@ img {
     display: none;
   }
   .experience {
-    padding: 5rem 0;
+    padding: 6rem 0;
   }
   .experience__logos {
     flex-direction: row;
