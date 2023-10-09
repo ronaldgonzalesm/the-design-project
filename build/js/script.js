@@ -14,4 +14,24 @@ $btnHamburger.forEach((btn) => {
     })
 });
 
+/** Slider **/
+
+let $slider = d.querySelector('.slider');
+let $sliderContent = d.querySelector('.slider__content');
+let $slides = d.querySelectorAll('.slider__slide');
+let sliderWidth = $slider.offsetWidth;
+
+window.addEventListener("resize", (e) => {
+    sliderWidth = $slider.offsetWidth;
+    slide.style.width = sliderWidth + "px";
+});
+
+$slides.forEach(( slide, index )=> {
+    slide.style.width = sliderWidth + "px";
+    if(index === 0){
+        slide.classList.add("slider__slide--active");
+    }
+})
+
+
 })
