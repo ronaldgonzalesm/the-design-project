@@ -5,13 +5,23 @@
     width: 100%;
     margin-bottom: 2rem;
     background-color: #f6f6f6;
-
+    overflow: hidden;
 
     &__content{
-
+        @include m.flexible(flex, row, nowrap, space-between, center );
     }
 
     &__slide {
+        flex: 1 0 100%;
+        &:nth-child(1){
+            background-color: red;
+        }
+        &:nth-child(2){
+            background-color: blue;
+        }
+        &:nth-child(3){
+            background-color: green;
+        }
     }
 
     &__description {

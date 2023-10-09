@@ -780,6 +780,29 @@ img {
   width: 100%;
   margin-bottom: 2rem;
   background-color: #f6f6f6;
+<<<<<<< HEAD
+=======
+  overflow: hidden;
+}
+.slider__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.slider__slide {
+  flex: 1 0 100%;
+}
+.slider__slide:nth-child(1) {
+  background-color: red;
+}
+.slider__slide:nth-child(2) {
+  background-color: blue;
+}
+.slider__slide:nth-child(3) {
+  background-color: green;
+>>>>>>> main
 }
 @media (min-width: 768px) {
   .benefits {
