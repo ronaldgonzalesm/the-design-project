@@ -780,8 +780,7 @@ img {
   width: 100%;
   margin-bottom: 2rem;
   background-color: #f6f6f6;
-<<<<<<< HEAD
-=======
+  position: relative;
   overflow: hidden;
 }
 .slider__content {
@@ -790,6 +789,9 @@ img {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .slider__slide {
   flex: 1 0 100%;
@@ -802,7 +804,10 @@ img {
 }
 .slider__slide:nth-child(3) {
   background-color: green;
->>>>>>> main
+}
+.slider.grabbing .slider__content {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 @media (min-width: 768px) {
   .benefits {
