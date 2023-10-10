@@ -5,10 +5,12 @@
     width: 100%;
     margin-bottom: 2rem;
     background-color: #f6f6f6;
+    position: relative;
     overflow: hidden;
 
     &__content{
         @include m.flexible(flex, row, nowrap, space-between, center );
+        transition: transform 0.3s ease;
     }
 
     &__slide {
@@ -22,6 +24,10 @@
         &:nth-child(3){
             background-color: green;
         }
+    }
+
+    &.grabbing .slider__content {
+        cursor: grabbing;
     }
 
     &__description {
