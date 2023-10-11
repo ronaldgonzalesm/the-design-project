@@ -4,58 +4,85 @@
 .slider{
     width: 100%;
     margin-bottom: 2rem;
-    background-color: #f6f6f6;
+    text-align: center;
     position: relative;
     overflow: hidden;
 
     &__content{
         @include m.flexible(flex, row, nowrap, space-between, center );
         transition: transform 0.3s ease;
+        .slider.grabbing & {
+            cursor: grabbing;
+        }
     }
 
     &__slide {
         flex: 1 0 100%;
-        &:nth-child(1){
-            background-color: red;
-        }
-        &:nth-child(2){
-            background-color: blue;
-        }
-        &:nth-child(3){
-            background-color: green;
+        padding: 0 2.5rem;
+        margin-bottom: 3rem;
+        @include m.desktop { 
+            padding: 0 5rem;
         }
     }
 
-    &.grabbing .slider__content {
-        cursor: grabbing;
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 1;
+
+        @include m.desktop { 
+            width: 30px;
+            height: 30px;
+        }
+
+        &--left {
+            left: 10px;
+        }
+          
+        &--right {
+            right: 10px;
+        }
+
     }
 
     &__description {
-    
+        color: v.$white;
+        font-size: 1.2rem;
+        font-weight: 600;
+        @include m.desktop { 
+            font-size: 2rem;
+        }
     }
 
     &__profile {
-    
+        @include m.flexible(flex, row, nowrap, center, center );
+        column-gap: 1rem;
     }
 
     &__thumbail {
-    
-    }
-
-    &__image {
-    
+        flex-shrink: 0;
     }
 
     &__info {
-    
+        text-align: left;
     }
 
     &__name {
-    
+        display: block;
+        text-transform: uppercase;
+        color: v.$white;
+        margin-bottom: .5rem;
     }
 
     &__company {
-    
+        font-size: 1rem;
+        font-weight: 500;
+        color: v.$white;
+        line-height: 1.1;
     }
 
 
