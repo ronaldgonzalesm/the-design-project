@@ -1,6 +1,7 @@
 "use strict";
 
 const d = document;
+const w = window;
 
 d.addEventListener("DOMContentLoaded",e=>{
 
@@ -15,101 +16,89 @@ $btnHamburger.forEach((btn) => {
 });
 
 /** Slider **/
+const $slider = d.querySelector('.slider'),
+$sliderContent = d.querySelector('.slider__content');
+let $slides = d.querySelectorAll('.slider__slide'),
+sliderWidth = $slider.offsetWidth,
+totalWidth = sliderWidth * $slides.length,
+countSlides = $slides.length,
+isDragging = false,
+isMoving = false,
+startPosition = 0,
+deltaX = 0,
+currentIndex = 0;
+const $arrowLeft = document.querySelector('.slider__arrow--left'),
+$arrowRight = document.querySelector('.slider__arrow--right');
 
-const $slider = document.querySelector('.slider');
-const $sliderContent = document.querySelector('.slider__content');
-let $slides = d.querySelectorAll('.slider__slide');
-let sliderWidth = $slider.offsetWidth;
-let totalWidth = sliderWidth * $slides.length;
-let countSlides = $slides.length;
+$slides.forEach((slide) => {
+  slide.style.width = sliderWidth + "px";
+  totalWidth += sliderWidth;
+});
 
-let isDragging = false;
-let startPosition = 0;
-let deltaX = 0;
-let currentIndex = 0;
-
-$slides.forEach(( slide, index )=> {
+w.addEventListener("resize", () => {
+  sliderWidth = $slider.offsetWidth;
+  $slides.forEach((slide) => {
     slide.style.width = sliderWidth + "px";
-    if(index === 0){
-        slide.classList.add("slider__slide--active");
-    }
-
-    totalWidth += sliderWidth;
-
-    window.addEventListener("resize", (e) => {
-        totalWidth = 0;
-        sliderWidth = $slider.offsetWidth;
-        slide.style.width = sliderWidth + "px";
-        totalWidth = sliderWidth * (index + 1);
-    });
-
-})
-
-$slider.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    $slider.classList.add('grabbing');
-    startPosition = e.clientX - $sliderContent.offsetLeft;
   });
-  
-  document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const newPosition = e.clientX - startPosition;
-    deltaX = newPosition;
-    $sliderContent.style.transform = `translateX(${newPosition}px)`;
-  });
-  
-  document.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    $slider.classList.remove('grabbing');
-  
-    // Determina si debes avanzar o retroceder al soltar el clic
-    
+  totalWidth = sliderWidth * $slides.length;
+  const newPosition = -currentIndex * sliderWidth;
+  $sliderContent.style.transform = `translateX(${newPosition}px)`;
+});
+
+function startDrag(e, clientX) {
+  isDragging = true;
+  $slider.classList.add('grabbing');
+  startPosition = clientX - $sliderContent.offsetLeft;
+}
+
+$slider.addEventListener('mousedown', (e) => startDrag(e, e.clientX));
+
+d.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const newPosition = e.clientX - startPosition;
+  deltaX = newPosition;
+
+  if (Math.abs(deltaX) < 10) {
+    isMoving = true;
+    return;
+  }
+
+  isMoving = true;
+  $sliderContent.style.transform = `translateX(${newPosition}px)`;
+});
+
+d.addEventListener('mouseup', () => {
+  isDragging = false;
+  $slider.classList.remove('grabbing');
+
+  if (isMoving) {
     if (deltaX < -sliderWidth / 4 && currentIndex < countSlides - 1) {
       currentIndex++;
     } else if (deltaX > sliderWidth / 4 && currentIndex > 0) {
       currentIndex--;
     }
-
-    // Mueve el slider al índice actual
     const newPosition = -currentIndex * sliderWidth;
     $sliderContent.style.transform = `translateX(${newPosition}px)`;
-  });
-
-
-  $slider.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    $slider.classList.add('grabbing');
-    startPosition = e.touches[0].clientX - $sliderContent.offsetLeft;
+  }
+  isMoving = false;
 });
 
 
-
-document.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const newPosition = e.touches[0].clientX - startPosition;
-    deltaX = newPosition;
-    $sliderContent.style.transform = `translateX(${newPosition}px)`;
-});
-
-document.addEventListener('touchend', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    $slider.classList.remove('grabbing');
-  
-    // Determina si debes avanzar o retroceder al soltar el dedo
-    if (deltaX < -sliderWidth / 4 && currentIndex < countSlides - 4) {
-      currentIndex++;
-    } else if (deltaX > sliderWidth / 4 && currentIndex > 0) {
-      currentIndex--;
-    }
-  
-    // Mueve el slider al índice actual
+$arrowLeft.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
     const newPosition = -currentIndex * sliderWidth;
     $sliderContent.style.transform = `translateX(${newPosition}px)`;
+  }
 });
 
+$arrowRight.addEventListener('click', () => {
+  if (currentIndex < countSlides - 1) {
+    currentIndex++;
+    const newPosition = -currentIndex * sliderWidth;
+    $sliderContent.style.transform = `translateX(${newPosition}px)`;
+  }
+});
 
 })
