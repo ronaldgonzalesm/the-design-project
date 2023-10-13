@@ -35,3 +35,8 @@
 .color-primary{
     color: v.$colorPrimary;
 }
+
+.arrow-disable{
+    opacity: .3;
+    pointer-events: none;
+}
