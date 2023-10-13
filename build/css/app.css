@@ -340,6 +340,11 @@ template {
   color: #F86642;
 }
 
+.arrow-disable {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 html {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;

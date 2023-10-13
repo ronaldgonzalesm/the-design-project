@@ -51,6 +51,22 @@ function startDrag(e, clientX) {
   startPosition = clientX - $sliderContent.offsetLeft;
 }
 
+function isFinal(currentIndex, countSlides){
+  let current = currentIndex + 2;
+  if(current === countSlides){
+    return true;
+  }
+  return false;
+}
+
+function isStart(currentIndex, countSlides){
+  let current = currentIndex;
+  if(current === 1){
+    return true;
+  }
+  return false;
+}
+
 $slider.addEventListener('mousedown', (e) => startDrag(e, e.clientX));
 
 d.addEventListener('mousemove', (e) => {
@@ -69,15 +85,32 @@ d.addEventListener('mousemove', (e) => {
 });
 
 d.addEventListener('mouseup', () => {
+
   isDragging = false;
   $slider.classList.remove('grabbing');
 
   if (isMoving) {
     if (deltaX < -sliderWidth / 4 && currentIndex < countSlides - 1) {
       currentIndex++;
+
     } else if (deltaX > sliderWidth / 4 && currentIndex > 0) {
       currentIndex--;
     }
+
+    if(isStart(currentIndex + 1, countSlides)){
+      $arrowLeft.classList.add("arrow-disable");
+    }
+    else{
+      $arrowLeft.classList.remove("arrow-disable");
+    }
+
+    if(isFinal(currentIndex - 1, countSlides)){
+      $arrowRight.classList.add("arrow-disable");
+    }
+    else{
+      $arrowRight.classList.remove("arrow-disable");
+    }
+
     const newPosition = -currentIndex * sliderWidth;
     $sliderContent.style.transform = `translateX(${newPosition}px)`;
   }
@@ -86,19 +119,36 @@ d.addEventListener('mouseup', () => {
 
 
 $arrowLeft.addEventListener('click', () => {
+    $arrowRight.classList.remove("arrow-disable");
+    if(isStart(currentIndex, countSlides)){
+      $arrowLeft.classList.add("arrow-disable");
+    }
+    else{
+      $arrowLeft.classList.remove("arrow-disable");
+    }
   if (currentIndex > 0) {
     currentIndex--;
     const newPosition = -currentIndex * sliderWidth;
     $sliderContent.style.transform = `translateX(${newPosition}px)`;
+
   }
 });
 
 $arrowRight.addEventListener('click', () => {
+  $arrowLeft.classList.remove("arrow-disable");
+  if(isFinal(currentIndex, countSlides)){
+    $arrowRight.classList.add("arrow-disable");
+  }
+  else{
+    $arrowRight.classList.remove("arrow-disable");
+  }
   if (currentIndex < countSlides - 1) {
     currentIndex++;
     const newPosition = -currentIndex * sliderWidth;
     $sliderContent.style.transform = `translateX(${newPosition}px)`;
+    
   }
+  
 });
 
 })
