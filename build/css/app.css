@@ -856,6 +856,119 @@ img {
   color: #fff;
   line-height: 1.1;
 }
+
+.pricing {
+  padding: 5rem 0;
+}
+
+.discounts {
+  margin-bottom: 4rem;
+}
+.discounts__options {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #F86642;
+  border-radius: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.discounts__option {
+  position: relative;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+.discounts__option:nth-child(1) {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.discounts__option:nth-child(2) {
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: #F86642;
+}
+.discounts__option:nth-child(3) {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.discounts__option--active {
+  background-color: #000;
+  color: #fff;
+}
+.discounts__percentage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #F86642;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  top: -24px;
+}
+
+.tabs {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.tab {
+  border: 2px solid #F86642;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+.tab__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.tab__description {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.tab__pay {
+  max-width: 80%;
+  text-align: center;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #F86642;
+  margin: 0 auto;
+}
+.tab__periodically, .tab__price {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #F86642;
+}
+.tab__periodically {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+.tab__info {
+  padding-top: 2rem;
+}
+.tab__title-list {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.tab__list {
+  padding-left: 1rem;
+}
+.tab__design {
+  margin-top: 4rem;
+}
+.tab__footer {
+  margin-top: 3rem;
+}
+.tab__btn {
+  display: block;
+  text-align: center;
+  border-radius: 0.5rem;
+}
 @media (min-width: 768px) {
   .benefits {
     padding: 6rem 0;
@@ -874,6 +987,15 @@ img {
   }
   .accessible__title {
     text-align: center;
+  }
+  .tab__header {
+    margin-bottom: 4rem;
+  }
+  .tab__design {
+    margin-top: 5rem;
+  }
+  .tab__footer {
+    margin-top: 4rem;
   }
 }
 @media (min-width: 1024px) {
@@ -995,6 +1117,14 @@ img {
   }
   .slider__description {
     font-size: 2rem;
+  }
+  .tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 340px) {
+  .discounts__option {
+    font-size: 0.75rem;
   }
 }
 /*# sourceMappingURL=app.css.map */

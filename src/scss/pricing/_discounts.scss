@@ -1,0 +1,63 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.discounts {
+
+    margin-bottom: 4rem;
+
+    &__options {
+        @include m.flexible(inline-flex, row, nowrap, space-between, center );
+        border: 1px solid v.$colorPrimary;
+        border-radius: .5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__option {
+        position: relative;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: .875rem;
+        padding: .75rem 1rem;
+        cursor: pointer;
+
+        &:nth-child(1){
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+        }
+
+        &:nth-child(2){
+            border-width: 0 1px;
+            border-style: solid;
+            border-color: v.$colorPrimary;
+        }
+
+        &:nth-child(3){
+            border-top-right-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        }
+
+        &--active{
+            background-color: v.$black;
+            color: v.$white;
+        }
+
+        @include m.phoneMin { 
+            font-size: .75rem;
+        }
+
+    }
+
+    &__percentage {
+        position: absolute;
+        left: 0;
+        right: 0;
+        color: v.$colorPrimary;
+        font-size: .75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        top: -24px;
+    }
+
+}
