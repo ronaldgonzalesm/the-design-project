@@ -5,7 +5,7 @@ const w = window;
 
 d.addEventListener("DOMContentLoaded",e=>{
 
-/** Menu responsive */
+/** Menu responsive **/
 let $btnHamburger = d.querySelectorAll('.hamburger');
 let $navigation = d.querySelector('.navigation');
 
@@ -150,5 +150,20 @@ $arrowRight.addEventListener('click', () => {
   }
   
 });
+
+
+/** Tabs **/
+
+let $discountsOptions = d.querySelectorAll('.discounts__option');
+$discountsOptions.forEach((option)=>{
+  option.addEventListener("click", e => {
+
+    $discountsOptions.forEach((option)=>{
+      option.classList.remove("discounts__option--active");
+    })
+
+    option.classList.add("discounts__option--active");
+})
+})
 
 })
