@@ -10,7 +10,7 @@
     overflow: hidden;
     margin-bottom: 3rem;
     @include m.desktop { 
-        height: 600px;
+        height: 560px;
         flex-direction: row;
         padding: 0 0 0 2rem;
     }
@@ -84,10 +84,6 @@
         @include m.desktop { 
             font-size: 1.688rem;
         }
-    }
-    
-    &__button {
-    
     }
 
 }

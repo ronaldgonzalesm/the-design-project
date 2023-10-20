@@ -321,8 +321,9 @@ template {
   text-transform: uppercase;
   background-color: #F86642;
   border: 2px solid #F86642;
+  border-radius: 0.5rem;
   padding: 0.875rem 1.5rem;
-  transition: background-color 0.2s ease, border 0.2s ease;
+  transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
 }
 .button:hover {
   background-color: #000;
@@ -781,6 +782,7 @@ img {
   font-size: 1.2rem;
   margin: 1rem 0;
 }
+
 .slider {
   width: 100%;
   margin-bottom: 2rem;
@@ -923,11 +925,20 @@ img {
   border-radius: 0.5rem;
   padding: 2rem;
 }
+.tab--featured {
+  color: #fff;
+  background-color: #F86642;
+  border-color: #000;
+}
 .tab__header {
   text-align: center;
   margin-bottom: 3rem;
 }
+.tab__title--featured {
+  color: #fff;
+}
 .tab__description {
+  height: 45px;
   margin-top: 0.5rem;
   margin-bottom: 0;
 }
@@ -938,11 +949,25 @@ img {
   border-bottom: 2px solid #F86642;
   margin: 0 auto;
 }
+.tab__pay--featured {
+  border-color: #fff;
+}
+.tab__discount {
+  font-size: 1.15rem;
+  color: gray;
+  font-weight: 600;
+  -webkit-text-decoration: line-through 3px;
+          text-decoration: line-through 3px;
+  /*opacity: 0;*/
+}
 .tab__periodically, .tab__price {
   display: block;
   font-size: 2rem;
   font-weight: 600;
   color: #F86642;
+}
+.tab__periodically--featured, .tab__price--featured {
+  color: #000;
 }
 .tab__periodically {
   text-transform: uppercase;
@@ -955,7 +980,11 @@ img {
   font-size: 1rem;
   text-transform: uppercase;
 }
+.tab__title-list--featured {
+  color: #fff;
+}
 .tab__list {
+  min-height: 100px;
   padding-left: 1rem;
 }
 .tab__design {
@@ -966,8 +995,23 @@ img {
 }
 .tab__btn {
   display: block;
+  color: #000;
+  border-color: #000;
+  background-color: transparent;
   text-align: center;
-  border-radius: 0.5rem;
+}
+.tab__btn:hover {
+  color: #F86642;
+  border-color: #F86642;
+  background-color: transparent;
+}
+.tab__btn--featured {
+  color: #fff;
+  border-color: #fff;
+}
+.tab__btn--featured:hover {
+  color: #000;
+  border-color: #000;
 }
 @media (min-width: 768px) {
   .benefits {
@@ -987,15 +1031,6 @@ img {
   }
   .accessible__title {
     text-align: center;
-  }
-  .tab__header {
-    margin-bottom: 4rem;
-  }
-  .tab__design {
-    margin-top: 5rem;
-  }
-  .tab__footer {
-    margin-top: 4rem;
   }
 }
 @media (min-width: 1024px) {
@@ -1075,7 +1110,7 @@ img {
     grid-template-columns: repeat(3, 1fr);
   }
   .box {
-    height: 600px;
+    height: 560px;
     flex-direction: row;
     padding: 0 0 0 2rem;
   }

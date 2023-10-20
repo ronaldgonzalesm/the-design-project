@@ -154,7 +154,9 @@ $arrowRight.addEventListener('click', () => {
 
 /** Tabs **/
 
-let $discountsOptions = d.querySelectorAll('.discounts__option');
+let $discountsOptions = d.querySelectorAll('.discounts__option'),
+$tabs = d.querySelectorAll('.tab');
+
 $discountsOptions.forEach((option)=>{
   option.addEventListener("click", e => {
 
@@ -163,6 +165,18 @@ $discountsOptions.forEach((option)=>{
     })
 
     option.classList.add("discounts__option--active");
+
+    let discount = option.querySelector(".discounts__percentage") !== null;
+    if(discount){
+      let percentage = option.querySelector(".discounts__percentage").getAttribute("data-percentage");
+
+      $tabs.forEach((tab)=>{
+        let priceTab = tab.querySelector(".tab__price").getAttribute("data-price");
+        console.log(priceTab);
+      })
+
+    }
+
 })
 })
 
