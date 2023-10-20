@@ -280,7 +280,7 @@
                 </div>
             </div>
         </section>
-        <section class="pricing container">
+        <div class="pricing container">
             <div class="discounts text-center">
                 <ul class="discounts__options">
                     <li class="discounts__option discounts__option--active">Monthly</li>
@@ -288,8 +288,15 @@
                     <li class="discounts__option"><span class="discounts__percentage" data-percentage="15">Save 15%</span> Yearly</li>
                 </ul>
             </div>
+            <div class="alternator text-center">
+                <ul class="alternator__options" role="tablist">
+                    <li class="alternator__option alternator__option--active" aria-selected="true" role="tab" id="essencial-tab" aria-controls="essencial">Essencial</li>
+                    <li class="alternator__option" id="pro-tab" role="tab" aria-selected="false" aria-controls="pro">Pro</li>
+                    <li class="alternator__option" id="turbo-tab" role="tab" aria-selected="false" aria-controls="turbo">Turbo</li>
+                </ul>
+            </div>
             <div class="tabs">
-                <article class="tab">
+                <article class="tab tab--active" data-tab="essencial" id="essencial" aria-labelledby="essencial-tab">
                     <div class="tab__content">
                         <header class="tab__header">
                             <h3 class="tab__title">Essencial</h3>
@@ -321,7 +328,7 @@
                         </footer>
                     </div>
                 </article>
-                <article class="tab tab--featured">
+                <article class="tab tab--featured" data-tab="pro" id="pro" aria-labelledby="pro-tab">
                     <div class="tab__content">
                         <header class="tab__header">
                             <h3 class="tab__title tab__title--featured">Pro</h3>
@@ -355,7 +362,7 @@
                         </footer>
                     </div>
                 </article>
-                <article class="tab">
+                <article class="tab" data-tab="turbo" id="turbo" aria-labelledby="turbo-tab">
                     <div class="tab__content">
                         <header class="tab__header">
                             <h3 class="tab__title">Turbo</h3>
@@ -390,7 +397,7 @@
                     </div>
                 </article>
             </div>
-        </section>
+        </div>
     </div>
     <script src="build/js/aos.js"></script>
     <script>AOS.init({duration: 200, easing: "linear", aos: "fade-up"});</script>

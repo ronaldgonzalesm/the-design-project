@@ -155,7 +155,8 @@ $arrowRight.addEventListener('click', () => {
 /** Tabs **/
 
 let $discountsOptions = d.querySelectorAll('.discounts__option'),
-$tabs = d.querySelectorAll('.tab');
+$tabs = d.querySelectorAll('.tab'),
+formatNumber = new Intl.NumberFormat('en-US');
 
 $discountsOptions.forEach((option)=>{
   option.addEventListener("click", e => {
@@ -165,18 +166,54 @@ $discountsOptions.forEach((option)=>{
     })
 
     option.classList.add("discounts__option--active");
-
     let discount = option.querySelector(".discounts__percentage") !== null;
     if(discount){
       let percentage = option.querySelector(".discounts__percentage").getAttribute("data-percentage");
-
       $tabs.forEach((tab)=>{
-        let priceTab = tab.querySelector(".tab__price").getAttribute("data-price");
-        console.log(priceTab);
+        let tabPrice = tab.querySelector(".tab__price"),
+        tabDiscount = tab.querySelector(".tab__discount"),
+        price = tab.querySelector(".tab__price").getAttribute("data-price"),
+        priceDiscount = parseInt(price - ( price * percentage / 100)),
+        priceTotal = formatNumber.format(priceDiscount);
+        tabPrice.textContent = `$${priceTotal}`;
+        tabDiscount.classList.add("tab__discount--active");
       })
-
     }
+    else{
+      $tabs.forEach((tab)=>{
+        let tabPrice = tab.querySelector(".tab__price"),
+        tabDiscount = tab.querySelector(".tab__discount"),
+        price = formatNumber.format(tab.querySelector(".tab__price").getAttribute("data-price"));
+        tabPrice.textContent = `$${price}`;
+        tabDiscount.classList.remove("tab__discount--active");
+      })
+    }
+})
+})
 
+/** Alternator tabs **/
+let $alternatorOptions = d.querySelectorAll('.alternator__option'),
+$mytabs = d.querySelectorAll('.tab');
+
+$alternatorOptions.forEach((option)=>{
+  option.addEventListener("click", e => {
+    $alternatorOptions.forEach((option)=>{
+      option.classList.remove("alternator__option--active");
+      option.setAttribute("aria-selected", "false");
+    })
+
+    option.classList.add("alternator__option--active");
+    option.setAttribute("aria-selected", "true");
+    let optionId = option.id.replace(/-tab/g, '');
+
+    $mytabs.forEach((tab)=>{
+      let dataTab = tab.getAttribute("data-tab");
+      tab.classList.remove("tab--active");
+      if(optionId === dataTab){
+        tab.classList.add("tab--active");
+      }
+    })
+    
 })
 })
 
