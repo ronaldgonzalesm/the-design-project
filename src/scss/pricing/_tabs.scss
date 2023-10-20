@@ -14,20 +14,24 @@
     border: 2px solid v.$colorPrimary;
     border-radius: .5rem;
     padding: 2rem;
+
+    &--featured{
+        color: v.$white;
+        background-color: v.$colorPrimary;
+        border-color: v.$black;
+    }
     
     &__header {
         text-align: center;
         margin-bottom: 3rem;
-        @include m.tablet { 
-            margin-bottom: 4rem;
-        }
     }
     
-    &__title {
-        
+    &__title--featured {
+        color: v.$white;
     }
     
     &__description {
+        height: 45px;
         margin-top: .5rem;
         margin-bottom: 0;
     }
@@ -38,6 +42,19 @@
         padding-bottom: 2rem;
         border-bottom: 2px solid v.$colorPrimary;
         margin: 0 auto;
+
+        &--featured{
+            border-color: v.$white;
+        }
+
+    }
+
+    &__discount{
+        font-size: 1.15rem;
+        color: gray;
+        font-weight: 600;
+        text-decoration: line-through 3px;
+        /*opacity: 0;*/
     }
     
     &__periodically,
@@ -46,6 +63,11 @@
         font-size: 2rem;
         font-weight: 600;
         color: v.$colorPrimary;
+        
+        &--featured{
+            color: v.$black;
+        }
+
     }
     
     &__periodically {
@@ -60,9 +82,15 @@
     &__title-list{
         font-size: 1rem;
         text-transform: uppercase;
+
+        &--featured{
+            color: v.$white;
+        }
+
     }
 
     &__list {
+        min-height: 100px;
         padding-left: 1rem;
     }
     
@@ -72,22 +100,36 @@
     
     &__design {
         margin-top: 4rem;
-        @include m.tablet { 
-            margin-top: 5rem;
-        }
     }
     
     &__footer {
         margin-top: 3rem;
-        @include m.tablet { 
-            margin-top: 4rem;
-        }
     }
     
     &__btn {
         display: block;
+        color: v.$black;
+        border-color: v.$black;
+        background-color: transparent;
         text-align: center;
-        border-radius: .5rem;
+
+        &:hover{
+            color: v.$colorPrimary;
+            border-color: v.$colorPrimary;
+            background-color: transparent;
+        }
+
+        &--featured{
+            color: v.$white;
+            border-color: v.$white;
+
+            &:hover{
+                color: v.$black;
+                border-color: v.$black;
+            }
+
+        }
+
     }
 
 }
