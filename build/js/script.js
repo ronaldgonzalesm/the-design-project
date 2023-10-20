@@ -15,6 +15,23 @@ $btnHamburger.forEach((btn) => {
     })
 });
 
+
+/** Header sticky **/
+
+let $header = d.querySelector(".header");
+w.addEventListener("scroll", (e)=>{
+  let currentScroll = w.scrollY;
+  console.log(currentScroll);
+  if(currentScroll > 0){
+    $header.classList.add("header--sticky");
+
+  }
+  else{
+    $header.classList.remove("header--sticky");
+  }
+})
+
+
 /** Slider **/
 const $slider = d.querySelector('.slider'),
 $sliderContent = d.querySelector('.slider__content');
