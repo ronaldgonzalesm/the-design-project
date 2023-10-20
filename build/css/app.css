@@ -363,7 +363,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  background-color: #fff;
+  background-color: #E0EAF3;
   color: #000;
 }
 
@@ -428,8 +428,10 @@ img {
 }
 
 .header {
+  position: relative;
   background-color: #E0EAF3;
-  overflow: hidden;
+  transition: background 0.2s ease-in-out;
+  z-index: 9;
 }
 .header__bar {
   height: 100px;
@@ -443,63 +445,7 @@ img {
 .header__cta {
   display: none;
 }
-.header__benefits {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  row-gap: 1rem;
-  list-style: none;
-  padding-left: 0;
-  margin-top: 2rem;
-}
-.header__benefit {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  -webkit-column-gap: 0.5rem;
-     -moz-column-gap: 0.5rem;
-          column-gap: 0.5rem;
-  font-weight: 700;
-}
-.header__benefit:before {
-  content: "";
-  width: 25px;
-  height: 25px;
-  background-image: url("/build/img/icon-item.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.header__button {
-  margin-top: 2rem;
-}
-.header__cartoons {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0;
-  margin: 3rem 0 0;
-  -webkit-column-gap: 2rem;
-     -moz-column-gap: 2rem;
-          column-gap: 2rem;
-}
-.header__cartoon-item {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-.header__cartoon-item:nth-child(4), .header__cartoon-item:nth-child(5) {
-  display: none;
-}
+
 .navigation {
   position: fixed;
   width: 100%;
@@ -546,6 +492,68 @@ img {
   background-color: #F86642;
   opacity: 0.75;
 }
+.hero {
+  background-color: #E0EAF3;
+  overflow: hidden;
+}
+.hero__benefits {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1rem;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2rem;
+}
+.hero__benefit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-column-gap: 0.5rem;
+     -moz-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+  font-weight: 700;
+}
+.hero__benefit:before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-image: url("/build/img/icon-item.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.hero__button {
+  margin-top: 2rem;
+}
+.hero__cartoons {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+  margin: 3rem 0 0;
+  -webkit-column-gap: 2rem;
+     -moz-column-gap: 2rem;
+          column-gap: 2rem;
+}
+.hero__cartoon-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.hero__cartoon-item:nth-child(4), .hero__cartoon-item:nth-child(5) {
+  display: none;
+}
+
 .hamburger {
   background-color: #000;
   width: 50px;
@@ -1085,25 +1093,15 @@ img {
   }
 }
 @media (min-width: 1024px) {
+  .header--sticky {
+    position: sticky;
+    top: 0;
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    background: hsla(0, 0%, 100%, 0.3);
+  }
   .header__cta {
     display: block;
-  }
-  .header__content {
-    margin-top: 5rem;
-    text-align: center;
-  }
-  .header__title {
-    font-size: 3.125rem;
-  }
-  .header__benefits {
-    flex-direction: row;
-    justify-content: center;
-    -webkit-column-gap: 3rem;
-       -moz-column-gap: 3rem;
-            column-gap: 3rem;
-  }
-  .header__cartoon-item:nth-child(4), .header__cartoon-item:nth-child(5) {
-    display: flex;
   }
   .navigation {
     position: static;
@@ -1128,6 +1126,23 @@ img {
   }
   .navigation__link--button {
     display: none;
+  }
+  .hero__content {
+    margin-top: 5rem;
+    text-align: center;
+  }
+  .hero__title {
+    font-size: 3.125rem;
+  }
+  .hero__benefits {
+    flex-direction: row;
+    justify-content: center;
+    -webkit-column-gap: 3rem;
+       -moz-column-gap: 3rem;
+            column-gap: 3rem;
+  }
+  .hero__cartoon-item:nth-child(4), .hero__cartoon-item:nth-child(5) {
+    display: flex;
   }
   .hamburger {
     display: none;

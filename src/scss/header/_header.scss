@@ -2,8 +2,19 @@
 @use 'base/mixins' as m;
 
 .header{
+     position: relative;
      background-color: v.$colorTertiary;
-     overflow: hidden;
+     transition: background .2s ease-in-out;
+     z-index: 9;
+
+     @include m.desktop { 
+          &--sticky{
+               position: sticky;
+               top: 0;
+               backdrop-filter: blur(20px);
+               background: hsla(0,0%,100%,.3);
+          }    
+     }
 
      &__bar {
           height: 100px;
@@ -11,90 +22,11 @@
           padding: 1.3rem 0;
      }
 
-     &__logo {
-
-     }
-
-     &__logo-link {
-
-     }
-
      &__cta {
           display: none;
           @include m.desktop { 
                display: block;
           }
-
-     }
-
-     &__content {
-          @include m.desktop { 
-               margin-top: 5rem;
-               text-align: center;    
-          }
-     }
-
-     &__title {
-          @include m.desktop { 
-               font-size: 3.125rem;
-          }
-     }
-
-     &__benefits {
-          @include m.flexible(flex, column, nowrap, flex-start, flex-start );
-          row-gap: 1rem;
-          list-style: none;
-          padding-left: 0;
-          margin-top: 2rem;
-          @include m.desktop { 
-               flex-direction: row;
-               justify-content: center;
-               column-gap: 3rem;
-          }
-     }
-
-     &__benefit {
-          @include m.flexible(flex, row, nowrap, flex-start, flex-start );
-          column-gap: .5rem;
-          font-weight: 700;
-          &:before{
-               content: '';
-               width: 25px;
-               height: 25px;
-               background-image: url('/build/img/icon-item.png');
-               background-repeat: no-repeat;
-               background-position: center;
-               background-size: cover;
-          }
-     }
-
-     &__button{
-          margin-top: 2rem;
-     }
-
-     &__cartoons {
-          list-style: none;
-          @include m.flexible(flex, row, nowrap, space-between, flex-end );
-          padding: 0;
-          margin: 3rem 0 0;
-          column-gap: 2rem;
-     }
-
-     &__cartoon-item {
-          @include m.flexible(flex, row, nowrap, center, center);
-          &:nth-child(4),
-          &:nth-child(5){
-               display: none;
-          }
-          @include m.desktop { 
-               &:nth-child(4),
-               &:nth-child(5){
-                    display: flex;
-               }
-          }
-     }
-
-     &__cartoon-image {
 
      }
      
