@@ -18,16 +18,19 @@ $btnHamburger.forEach((btn) => {
 
 /** Header sticky **/
 
-let $header = d.querySelector(".header");
+let $header = d.querySelector(".header"),
+headerHeight = $header.offsetHeight;
 w.addEventListener("scroll", (e)=>{
   let currentScroll = w.scrollY;
-  console.log(currentScroll);
-  if(currentScroll > 0){
+  if(currentScroll >= headerHeight){
     $header.classList.add("header--sticky");
-
+    setTimeout(()=>{
+      $header.classList.add("header--showed");
+    }, 100);
   }
   else{
     $header.classList.remove("header--sticky");
+    $header.classList.remove("header--showed");
   }
 })
 
