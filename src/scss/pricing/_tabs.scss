@@ -126,25 +126,42 @@
     }
     
     &__btn {
-        display: block;
+        display: flex;
+        justify-content: center;
         color: v.$black;
         border-color: v.$black;
         background-color: transparent;
         text-align: center;
 
+        &::after{
+            background-image: url(/build/img/icon-right-black.svg);
+            transition: background-image .2s ease-in-out;
+        }
+
         &:hover{
             color: v.$colorPrimary;
             border-color: v.$colorPrimary;
             background-color: transparent;
+            &::after{
+                background-image: url(/build/img/icon-right-orange.svg);
+            }
+
         }
 
         &--featured{
             color: v.$white;
             border-color: v.$white;
+            &::after{
+                background-image: url(/build/img/icon-right-white.svg);
+            }
 
             &:hover{
                 color: v.$black;
                 border-color: v.$black;
+                &::after{
+                    background-image: url(/build/img/icon-right-black.svg);
+                }
+
             }
 
         }

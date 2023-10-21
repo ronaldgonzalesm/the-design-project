@@ -6,7 +6,7 @@
     height: auto;
     @include m.flexible(flex, column, nowrap, flex-end, center );
     background-color: #91CFD2;
-    padding: 2rem;
+    padding: 1.5rem;
     overflow: hidden;
     margin-bottom: 3rem;
     @include m.desktop { 
@@ -48,7 +48,7 @@
     &__info {
         background-color: v.$colorSecondary;
         border-radius: .5rem;
-        padding: 2rem;
+        padding: 1.5rem;
         box-shadow: 0 0 10px rgb(141 141 141 / 80%);
         margin-top: -5rem;
         @include m.desktop {
