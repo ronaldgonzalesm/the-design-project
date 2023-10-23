@@ -1,0 +1,127 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.aditional {
+
+    &__grid {
+        @include m.grid(1, 3rem);
+        text-align: center;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 2px solid #C6C6C6;
+        @include m.desktop {
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 0;
+        }
+    }
+
+    &__cta {
+        max-width: 500px;
+        border: 2px solid v.$colorTertiary;
+        padding: 2rem;
+        margin: 0 auto;
+    }
+
+    &__cta-title {
+        display: block;
+        font-size: .875rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    &__sprite{
+        position: absolute;
+        z-index: 1;
+        &--1{
+            top: 0;
+            right: 40px;
+        }
+        &--2{
+            top: 100px;
+            right: 53px;
+        }
+        &--3{
+            top: 150px;
+            right: 120px;
+        }
+        &--4{
+            bottom: 80px;
+            left: 30px;
+        }
+        &--5{
+            left: 140px;
+            top: 50px;
+        }
+        &--6{
+            bottom: 25px;
+            left: 100px;
+        }
+    }
+
+    &__info {
+        position: relative;
+        border: 2px solid v.$colorTertiary;
+        padding: 2rem;
+        @include m.desktop { 
+            grid-column: 2/4;
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -20px;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-image: url('/build/img/new.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            @include m.tablet { 
+                top: -50px;
+                left: -50px;
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+    }
+
+    &__title {
+        position: relative;
+        font-size: 1rem;
+        margin-top: 1rem;
+        z-index: 2;
+    }
+
+    &__subtitle {
+        position: relative;
+        z-index: 2;
+    }
+
+    &__btn {
+        position: relative;
+        color: #000;
+        border-color: #000;
+        background-color: transparent;
+        text-align: center;
+        z-index: 2;
+
+        &::after {
+            background-image: url(/build/img/icon-right-black.svg);
+            transition: background-image 0.2s ease-in-out;
+        }
+
+        &:hover {
+            color: #F86642;
+            border-color: #F86642;
+            background-color: transparent;
+            &::after {
+                background-image: url(/build/img/icon-right-orange.svg);
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,39 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.bubble {
+    max-width: 80%;
+    background-color: v.$colorPrimary;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+    padding: 1.5rem;
+
+    @include m.tablet { 
+        max-width: 100%;
+    }
+
+    &:hover{
+        background-color: v.$black;
+    }
+    
+    &__title {
+        font-size: 1.125rem;
+        color: v.$white;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &--left {
+        border-bottom-left-radius: 0;
+    }
+
+    &--right {
+        border-bottom-right-radius: 0;
+        justify-self: flex-end;
+        @include m.tablet { 
+            justify-self: flex-start;
+        }
+    }
+
+}

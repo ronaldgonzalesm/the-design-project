@@ -1,0 +1,22 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.bubbles {
+
+    padding: 4rem 0;
+    background-color: v.$colorTertiary;
+
+    @include m.tablet { 
+        padding: 6rem 0;
+    }
+
+    &__grid {
+        max-width: 1000px;
+        @include m.grid(1, 2rem);
+        margin: 3rem auto 0;
+        @include m.tablet { 
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+}
