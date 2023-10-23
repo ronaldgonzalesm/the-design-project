@@ -676,6 +676,10 @@ img {
 .benefits__container {
   position: relative;
 }
+.benefits__header {
+  position: relative;
+  z-index: 2;
+}
 .benefits__title, .benefits__description {
   display: block;
   max-width: 900px;
@@ -683,6 +687,8 @@ img {
   margin: 0 auto 1.125rem;
 }
 .benefits__grid {
+  position: relative;
+  z-index: 2;
   display: grid;
   gap: 3rem;
   grid-template-columns: repeat(1, 1fr);
@@ -707,6 +713,7 @@ img {
   left: 0;
   position: absolute;
   top: 0;
+  opacity: 0.75;
   z-index: 1;
 }
 .benefits__triangle-bottom {
@@ -716,6 +723,7 @@ img {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  opacity: 0.75;
   z-index: 1;
 }
 
@@ -724,6 +732,10 @@ img {
   padding: 4rem 0;
   overflow: hidden;
 }
+.register__header {
+  position: relative;
+  z-index: 2;
+}
 .register__title, .register__description {
   display: block;
   max-width: 900px;
@@ -731,6 +743,8 @@ img {
   margin: 0 auto 1.125rem;
 }
 .register__grid {
+  position: relative;
+  z-index: 2;
   display: grid;
   gap: 3rem;
   grid-template-columns: repeat(1, 1fr);
@@ -1117,12 +1131,153 @@ img {
   border: 2px solid #F86642;
   border-bottom: 0;
 }
+
+.aditional__grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid #C6C6C6;
+}
+.aditional__cta {
+  max-width: 500px;
+  border: 2px solid #E0EAF3;
+  padding: 2rem;
+  margin: 0 auto;
+}
+.aditional__cta-title {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.aditional__sprite {
+  position: absolute;
+  z-index: 1;
+}
+.aditional__sprite--1 {
+  top: 0;
+  right: 40px;
+}
+.aditional__sprite--2 {
+  top: 100px;
+  right: 53px;
+}
+.aditional__sprite--3 {
+  top: 150px;
+  right: 120px;
+}
+.aditional__sprite--4 {
+  bottom: 80px;
+  left: 30px;
+}
+.aditional__sprite--5 {
+  left: 140px;
+  top: 50px;
+}
+.aditional__sprite--6 {
+  bottom: 25px;
+  left: 100px;
+}
+.aditional__info {
+  position: relative;
+  border: 2px solid #E0EAF3;
+  padding: 2rem;
+}
+.aditional__info::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url("/build/img/new.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.aditional__title {
+  position: relative;
+  font-size: 1rem;
+  margin-top: 1rem;
+  z-index: 2;
+}
+.aditional__subtitle {
+  position: relative;
+  z-index: 2;
+}
+.aditional__btn {
+  position: relative;
+  color: #000;
+  border-color: #000;
+  background-color: transparent;
+  text-align: center;
+  z-index: 2;
+}
+.aditional__btn::after {
+  background-image: url(/build/img/icon-right-black.svg);
+  transition: background-image 0.2s ease-in-out;
+}
+.aditional__btn:hover {
+  color: #F86642;
+  border-color: #F86642;
+  background-color: transparent;
+}
+.aditional__btn:hover::after {
+  background-image: url(/build/img/icon-right-orange.svg);
+}
+
+.bubbles {
+  padding: 4rem 0;
+  background-color: #E0EAF3;
+}
+.bubbles__grid {
+  max-width: 1000px;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
+  margin: 3rem auto 0;
+}
+
+.bubble {
+  max-width: 80%;
+  background-color: #F86642;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  padding: 1.5rem;
+}
+.bubble:hover {
+  background-color: #000;
+}
+.bubble__title {
+  font-size: 1.125rem;
+  color: #fff;
+  font-weight: 600;
+  margin: 0;
+}
+.bubble--left {
+  border-bottom-left-radius: 0;
+}
+.bubble--right {
+  border-bottom-right-radius: 0;
+  justify-self: flex-end;
+}
 @media (min-width: 768px) {
   .benefits {
     padding: 6rem 0;
   }
   .benefits__title, .benefits__description {
     text-align: center;
+  }
+  .benefits__triangle-top {
+    opacity: 1;
+  }
+  .benefits__triangle-bottom {
+    opacity: 1;
   }
   .register {
     padding: 6rem 0;
@@ -1144,6 +1299,24 @@ img {
   }
   .discounts__option {
     width: auto;
+  }
+  .aditional__info::after {
+    top: -50px;
+    left: -50px;
+    width: 120px;
+    height: 120px;
+  }
+  .bubbles {
+    padding: 6rem 0;
+  }
+  .bubbles__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bubble {
+    max-width: 100%;
+  }
+  .bubble--right {
+    justify-self: flex-start;
   }
 }
 @media (min-width: 1024px) {
@@ -1275,6 +1448,13 @@ img {
   }
   .alternator {
     display: none;
+  }
+  .aditional__grid {
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 0;
+  }
+  .aditional__info {
+    grid-column: 2/4;
   }
 }
 @media (max-width: 340px) {

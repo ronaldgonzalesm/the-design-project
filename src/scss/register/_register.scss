@@ -9,6 +9,11 @@
         padding: 6rem 0;
     }
 
+    &__header{
+        position: relative;
+        z-index: 2;
+    }
+
     &__title,
     &__description {
         display: block;
@@ -21,6 +26,8 @@
     }
 
     &__grid {
+        position: relative;
+        z-index: 2;
         @include m.grid(1, 3rem);
         margin-top: 3rem;
         @include m.desktop { 
