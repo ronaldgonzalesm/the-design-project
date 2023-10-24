@@ -15,9 +15,39 @@ $btnHamburger.forEach((btn) => {
     })
 });
 
+d.addEventListener("click",e=>{
+  if(!e.target.matches(".navigation a")) return false;
+  $navigation.classList.toggle("navigation--active");
+});
+
+/** Items menu active **/
+const sections = d.querySelectorAll("section");
+const navLinks = d.querySelectorAll(".navigation__link");
+d.addEventListener("scroll", e => {
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (w.scrollY >= sectionTop - 100) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  // Remove class 'navigation__link--active' all items menu
+  navLinks.forEach((navLink) => {
+    navLink.classList.remove("navigation__link--active");
+  });
+
+  // Add class 'navigation__link--active' item current menu
+  if (current) {
+    const activeNavLink = d.querySelector(`.navigation__link[href="#${current}"]`);
+    if (activeNavLink) {
+      activeNavLink.classList.add("navigation__link--active");
+    }
+  }
+});
+
 
 /** Header sticky **/
-
 let $header = d.querySelector(".header"),
 headerHeight = $header.offsetHeight;
 w.addEventListener("scroll", (e)=>{
