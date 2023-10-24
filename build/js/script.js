@@ -237,4 +237,32 @@ $alternatorOptions.forEach((option)=>{
 })
 })
 
+let $accordion = d.querySelector('.accordion');
+
+if($accordion !== 'undefined' && $accordion != null){
+
+    const $accordions = d.querySelectorAll('.accordion__item');
+    $accordions.forEach(accordion => {
+      let accordionContent = accordion.querySelector(".accordion__info");
+      let accordionTitle = accordion.querySelector(".accordion__title");
+      accordionTitle.addEventListener("click", e => {
+        let isOpened = accordionContent.classList.contains("opened");
+        $accordions.forEach(item => {
+            let contentItem = item.querySelector(".accordion__info");
+            let contentTitle = item.querySelector(".accordion__title");
+            
+            contentItem.classList.remove("opened");
+            contentItem.style.maxHeight = "0";
+            contentTitle.classList.remove("accordion__title--active");
+        });  
+        if (!isOpened) {
+            accordionContent.classList.add("opened");
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+            accordionTitle.classList.add("accordion__title--active");
+        }
+      });
+    });
+
+}
+
 })

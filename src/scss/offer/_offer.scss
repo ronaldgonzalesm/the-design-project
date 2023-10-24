@@ -1,0 +1,42 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.offer {
+    padding: 5rem 0;
+    background-image: url('/build/img/bg-section.svg');
+    @include m.tablet { 
+        padding: 6rem 0;
+    }
+
+    &__content {
+        text-align: center;
+        padding: 2rem 1rem;
+        background-color: v.$black;
+        @include m.tablet { 
+            padding: 7rem 4rem;
+        }
+    }
+
+    &__title {
+        max-width: 700px;
+        font-size: 1.688rem;
+        line-height: 1.2;
+        color: v.$white;
+        @include m.tablet { 
+            font-size: 3rem;
+        }
+    }
+
+    &__description {
+        color: v.$white;
+    }
+
+    &__btn {
+        margin-top: 2rem;
+        &:hover{
+            border-color: v.$colorPrimary;
+        }
+    }
+
+
+}

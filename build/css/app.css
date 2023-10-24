@@ -1266,6 +1266,100 @@ img {
   border-bottom-right-radius: 0;
   justify-self: flex-end;
 }
+
+.faqs {
+  padding: 5rem 0;
+}
+.faqs__title {
+  padding-bottom: 2rem;
+}
+
+.accordion {
+  grid-column: 2/5;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.accordion__item {
+  border-bottom: 1px solid #F86642;
+}
+.accordion__title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  padding: 1.2rem 0;
+  cursor: pointer;
+}
+.accordion__title::after {
+  content: "";
+  flex-shrink: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("/build/img/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.accordion__title--active::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.accordion__info {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.accordion__text {
+  color: #292526;
+  font-size: 1.2rem;
+  padding: 0 0 1.2rem;
+  margin: 0;
+}
+
+.offer {
+  padding: 5rem 0;
+  background-image: url("/build/img/bg-section.svg");
+}
+.offer__content {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #000;
+}
+.offer__title {
+  max-width: 700px;
+  font-size: 1.688rem;
+  line-height: 1.2;
+  color: #fff;
+}
+.offer__description {
+  color: #fff;
+}
+.offer__btn {
+  margin-top: 2rem;
+}
+.offer__btn:hover {
+  border-color: #F86642;
+}
+
+.footer {
+  background-color: #292526;
+  padding: 5rem 0;
+}
+.footer__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
+}
 @media (min-width: 768px) {
   .benefits {
     padding: 6rem 0;
@@ -1317,6 +1411,21 @@ img {
   }
   .bubble--right {
     justify-self: flex-start;
+  }
+  .faqs {
+    padding: 6rem 0;
+  }
+  .offer {
+    padding: 6rem 0;
+  }
+  .offer__content {
+    padding: 7rem 4rem;
+  }
+  .offer__title {
+    font-size: 3rem;
+  }
+  .footer {
+    padding: 6rem 0;
   }
 }
 @media (min-width: 1024px) {
@@ -1455,6 +1564,9 @@ img {
   }
   .aditional__info {
     grid-column: 2/4;
+  }
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 340px) {
