@@ -15,6 +15,38 @@ $btnHamburger.forEach((btn) => {
     })
 });
 
+d.addEventListener("click",e=>{
+  if(!e.target.matches(".navigation a")) return false;
+  $navigation.classList.toggle("navigation--active");
+});
+
+/** Items menu active **/
+
+const menuLinks = document.querySelectorAll('.navigation__link');
+
+function makeActive() {
+  let found = false; // Variable para rastrear si se ha encontrado una sección activa
+
+  menuLinks.forEach(link => {
+    const sectionId = link.getAttribute('href').substring(1);
+    const section = document.getElementById(sectionId);
+    const rect = section.getBoundingClientRect();
+    
+    if (rect.top <= 100 && rect.bottom >= 0 && !found) {
+      link.classList.add('navigation__link--active');
+      found = true; // Marcar que se ha encontrado una sección activa
+    } else {
+      link.classList.remove('navigation__link--active');
+    }
+  });
+}
+
+document.addEventListener('scroll', makeActive);
+
+
+
+
+
 
 /** Header sticky **/
 
