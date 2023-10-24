@@ -1,0 +1,55 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.accordion {
+    grid-column: 2/5;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &__item {
+        border-bottom: 1px solid v.$colorPrimary;
+
+    }
+    
+    &__title {
+        @include m.flexible(flex, row, nowrap, space-between, center );
+        font-size: 1.3rem;
+        padding: 1.2rem 0;
+        cursor: pointer;
+        &::after{
+            content: '';
+            flex-shrink: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image: url('/build/img/arrow-down.svg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            transition: transform .3s ease-in-out;
+        }
+
+        &--active{
+            &::after{
+                transform: rotate(180deg);
+                transition: transform .3s ease-in-out;
+            }
+        }
+
+    }
+
+    &__info{
+        max-height: 0;
+        overflow: hidden;
+        transition: all .3s ease-in-out;
+    }
+    
+    &__text {
+        color: v.$colorSecondary;
+        font-size: 1.2rem;
+        padding: 0 0 1.2rem;
+        margin: 0;
+    }
+
+}
