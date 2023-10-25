@@ -21,35 +21,33 @@ d.addEventListener("click",e=>{
 });
 
 /** Items menu active **/
-
-const menuLinks = document.querySelectorAll('.navigation__link');
-
-function makeActive() {
-  let found = false; // Variable para rastrear si se ha encontrado una sección activa
-
-  menuLinks.forEach(link => {
-    const sectionId = link.getAttribute('href').substring(1);
-    const section = document.getElementById(sectionId);
-    const rect = section.getBoundingClientRect();
-    
-    if (rect.top <= 100 && rect.bottom >= 0 && !found) {
-      link.classList.add('navigation__link--active');
-      found = true; // Marcar que se ha encontrado una sección activa
-    } else {
-      link.classList.remove('navigation__link--active');
+const sections = d.querySelectorAll("section");
+const navLinks = d.querySelectorAll(".navigation__link");
+d.addEventListener("scroll", e => {
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (w.scrollY >= sectionTop - 100) {
+      current = section.getAttribute("id");
     }
   });
-}
 
-document.addEventListener('scroll', makeActive);
+  // Remove class 'navigation__link--active' all items menu
+  navLinks.forEach((navLink) => {
+    navLink.classList.remove("navigation__link--active");
+  });
 
-
-
-
+  // Add class 'navigation__link--active' item current menu
+  if (current) {
+    const activeNavLink = d.querySelector(`.navigation__link[href="#${current}"]`);
+    if (activeNavLink) {
+      activeNavLink.classList.add("navigation__link--active");
+    }
+  }
+});
 
 
 /** Header sticky **/
-
 let $header = d.querySelector(".header"),
 headerHeight = $header.offsetHeight;
 w.addEventListener("scroll", (e)=>{
