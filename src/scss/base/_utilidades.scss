@@ -14,8 +14,8 @@
     font-weight: 600;
     line-height: 1.5em;
     text-transform: uppercase;
-    background-color: #F86642;
-    border: 2px solid #F86642;
+    background-color: v.$colorPrimary;
+    border: 2px solid v.$colorPrimary;
     border-radius: 0.5rem;
     padding: 0.875rem 1rem;
     transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
